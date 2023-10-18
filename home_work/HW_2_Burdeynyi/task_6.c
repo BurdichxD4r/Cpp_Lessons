@@ -7,6 +7,7 @@
 int main()
 {
 	int k = 38864;
+	k %= 86400;
 	printf("Time\n%d:%d:%d\n", k / 3600, k / 60 % 100, k % 60);
 	return 0;
 }
