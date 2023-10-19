@@ -58,35 +58,18 @@ z2 = x2 + y2; // -> fadd
 - **Явное** (программист)
 
 В ряде случаев преобразования сопроваждаются потерей информации. Без потери информации проходят следующие цепочки преобразований:
-```mermaid
-flowchart LR
-    "char" --> "short" --> "int" --> "long"
-    "unsigned char" --> "unsigned short" --> "unsigned int" --> "unsigned long"
-    "float" --> "double" --> "long double"
-```
-```mermaid
-flowchart LR
-    "char" --> "short" --> "int" --> "long"
-```
-```mermaid
-flowchart LR
-    "unsigned char" --> "unsigned short" --> "unsigned int" --> "unsigned long"
-```
-```mermaid
-flowchart LR
-    "float" --> "double" --> "long double"
-```
+
 ```mermaid
 flowchart LR
     char --> short --> int --> long
 ```
 ```mermaid
 flowchart LR
-    unsigned char --> unsigned short --> unsigned int --> unsigned long
+    unsigned_char --> unsigned_short --> unsigned_int --> unsigned_long
 ```
 ```mermaid
 flowchart LR
-    float --> double --> long double
+    float --> double --> long_double
 ```
 
 При арифметических операциях компилятор
@@ -167,8 +150,8 @@ malloc() new
 ```
 ```mermaid
 pie 
-    "Статическая память<br>(Пока программа работает)" : 25
-    "Автоматическая память (Стек)<br>(Время работы блока {})" : 25
-    "Регистровая память<br>(Время работы блока {})" : 25
-    "Динамическая память (Куча)<br>(Опред. программистом)" : 25
+    "Статическая память" : 25
+    "Автоматическая память (Стек)" : 25
+    "Регистровая память" : 25
+    "Динамическая память (Куча)" : 25
 ```
