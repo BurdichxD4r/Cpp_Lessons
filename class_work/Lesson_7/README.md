@@ -42,8 +42,8 @@
 
 ```mermaid
 flowchart LR
-    header_file_.h --> Custom_(#include_"myfile.h")
-    header_file_.h --> Library_(#include_<stdio.h>)
+    header_file_h --> Custom_include_myfile_h
+    header_file_h --> Library_include_stdio_h
 ```
 ```h
 // server.h
