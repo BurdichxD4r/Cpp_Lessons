@@ -24,7 +24,7 @@
 
 - [***Lesson_12***](https://github.com/BurdichxD4r/Cpp_Lessons/tree/master/class_work/Lesson_12) - [video]()
 
-- [***Lesson_13***](https://github.com/BurdichxD4r/Cpp_Lessons/tree/master/class_work/Lesson_13) - [video]()
+- [***Lesson_13***](https://github.com/BurdichxD4r/Cpp_Lessons/tree/master/class_work/Lesson_13#списки-деревья-стек-очередь) - [video]()
 
 - [***Lesson_14***](https://github.com/BurdichxD4r/Cpp_Lessons/tree/master/class_work/Lesson_14) - [video]()
 
