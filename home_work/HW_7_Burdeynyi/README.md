@@ -1,3 +1,4 @@
+[**Назад**](https://github.com/BurdichxD4r/Cpp_Lessons/tree/master#course-ccqt)
 ## Task_1
 
 - Создать массив [5][7]. Инициализируем числами от 0 до 35:
