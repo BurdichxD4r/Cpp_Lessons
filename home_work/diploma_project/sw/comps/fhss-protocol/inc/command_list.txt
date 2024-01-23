@@ -1,0 +1,189 @@
+{
+"Ping_o":
+        {"cmd":"Ping","id":""},
+"Ping_i":
+        {"cmd":"Ping","id":""},
+"Error_i":
+        {"cmd":"Error","id":"","errorMsg":""},        
+"GetDCEInfo_o":
+        {"cmd":"GetDCEInfo","id":""},
+"GetDCEInfo_i":
+        {"cmd":"GetDCEInfo","id":"","dceList":[
+                                               {"DCE_ID":0,"port":0,"IP":"","radioType":"",
+                                               "creationTime":0,"enableTime":0,"stage":"",
+                                               "busy":""},
+                                               {"DCE_ID":0,"port":0,"IP":"","radioType":"",
+                                               "creationTime":0,"enableTime":0,"stage":"",
+                                               "busy":""}
+                                               ]},
+
+"GetRadioDirInfo_o":
+        {"cmd":"GetRadioDirInfo","id":""},
+"GetRadioDirInfo_i":
+        {"cmd":"GetRadioDirInfo","id":"","dirList":[
+                                                    {"DCE_ID":0,"DCE_ID_OPPN":0,"sn":0,"errRS":0},
+                                                    {"DCE_ID":0,"DCE_ID_OPPN":0,"sn":0,"errRS":0}
+                                                    ]},
+"Version_o":
+	{"cmd":"Version","id":""}, 
+"Version_i":
+        {"cmd":"Version","id":"","list":[{"version":"","build":"","vendor":"","description":""},
+        {"version":"","build":"","vendor":"","description":""}]},
+"Status_i":
+        {"cmd":"Status","id":"","statusList":{"DCE_ID":0,"creationTime":0,"enableTime":0}},
+"Status_o":
+	{"cmd":"Status","id":""},
+"TermType_i":
+        {"cmd":"TermType","id":"","name":""},
+"TermType_o":
+        {"cmd":"TermType","id":"","name":""},
+"EnableDCE_o":
+        {"cmd":"EnableDCE","id":"","DCE_ID":0,"radioParams":[
+        {"radioName":"","radioIPv4":"","radioTcpPort":0,"radioUdpPort1":0,"radioUdpPort2":0},
+        {"radioName":"","radioIPv4":"","radioTcpPort":0,"radioUdpPort1":0,"radioUdpPort2":0},
+        {"radioName":"","radioIPv4":"","radioTcpPort":0,"radioUdpPort1":0,"radioUdpPort2":0},
+        {"radioName":"","radioIPv4":"","radioTcpPort":0,"radioUdpPort1":0,"radioUdpPort2":0}
+                ],
+                "bandWidth":"",
+                "modeSwitch":"",                
+                "modeExch1":"",                
+                "freqOffset":0,
+                "frequencyAll":0,
+                "freqActive":0,
+                "frequencyList":[0,0],
+                "frequencyPrimList":[0,0],
+                "frequencyAddList":[0,0],
+                "frequencyAdaptation":"",
+                "constellationAdaptation":"",
+                "rateSwitch":"",
+                "pcpKey":0,
+                "initPcpTime":0,
+                "modeFreqPcp":0,
+                "inputPort":[0,0],
+                "inputProt":"",
+                "modeMDM":0,
+                "outputAddr":"",
+                "outputPort":0,
+                "outputProt":"",
+                "ppfIndex":[0,0],
+                "ppfNumber":0,
+                "ppfSwitch":"",
+                "radioDirName":"",
+                "rcvrAddr":"",
+                "rcvrPort":0,
+                "rcvrProt":"",
+                "samplingRate":0
+	},
+"EnableDCE_i":
+        {"cmd":"EnableDCE","id":"","DCE_ID":0},
+"DisableDCE_i":{
+                "cmd":"DisableDCE",
+                "id":"",
+                "DCE_ID":0
+	},
+"DisableDCE_o":{
+                "cmd":"DisableDCE",
+                "id":"",
+                "DCE_ID":0
+        },
+"NetworkSYNC_i":{
+        "cmd":"NetworkSYNC",
+        "id":"",
+        "DCE_ID":0,
+        "DCE_ID_OPPN":0,
+        "synchroPack":[0,0,0],
+        "imitationIns":0,
+        "internalTime":[0, 0],        
+        "status":""
+},
+"NetworkSYNC_o":{
+                "cmd":"NetworkSYNC",
+                "id":"",
+                "DCE_ID":0,
+                "synchroPack":[0,0,0],
+                "imitationIns":0,
+                "DCE_ID_OPPN":0
+	},
+
+"NetworkCONNECT_o":{
+                "cmd":"NetworkCONNECT",
+                "id":"",
+                "DCE_ID":0,
+                "DCE_ID_OPPN":0,
+                "synchroPack":[0,0,0],
+                "imitationIns":0,
+                "bandWidth":0,
+                "modeSwitch":"",
+                "modeChangeFreq":0,
+                "rateSwitch":0,
+                "modeExch1":"",
+                "modeExch2":"",
+                "rate":0,
+                "modeAdapt":"",
+                "modeAutoDiscon":"",
+                "radioNetType":"",
+                "freeParam":0,                
+                "haveInfo":"",
+                "factorNet":0,
+                "factorUser":0,
+                "priority":""
+	},
+"NetworkCONNECT_i":{
+                "cmd":"NetworkCONNECT",
+                "id":"",
+                "DCE_ID":0,
+                "DCE_ID_OPPN":0,
+                "synchroPack":[0,0,0],
+                "imitationIns":0,
+                "bandWidth":0,
+                "modeSwitch":"",
+                "modeChangeFreq":0,
+                "rateSwitch":0,
+                "modeExch1":"",
+                "modeExch2":"",
+                "rate":0,
+                "modeAdapt":"",
+                "modeAutoDiscon":"",
+                "radioNetType":"",
+                "freeParam":0,
+                "haveInfo":"",
+                "priority":"",                
+                "freqRX": 0,
+                "freqTX": 0,
+                "status":""
+	},
+"NetworkDISCON_i":{
+                "cmd":"NetworkDISCON",
+                "id":"",
+                "DCE_ID":0,
+                "DCE_ID_OPPN":0,
+                "status":""
+	},
+"NetworkDISCON_o":{
+                "cmd":"NetworkDISCON",
+                "id":"",
+                "DCE_ID":0,
+                "DCE_ID_OPPN":0
+	},
+"ReplyExchangeDCE_i":{
+                "cmd":"ReplyExchangeDCE",                
+                "DCE_ID":0,
+                "MSG_ID":0,
+                "DCE_ID_SRC":0,
+                "DCE_ID_DST":0,
+                "status":"",
+                "msgsInQueue":0,
+                "bytesInQueue":0,
+                "type":"",
+                "error_message": ""
+        },
+"ExchangeDCE_o":{
+                "cmd":"ExchangeDCE",                
+                "type":"",
+                "DCE_ID":0,
+                "DCE_ID_SRC":0,
+                "DCE_ID_DST":0,
+                "MSG_ID":0,                
+                "data":""
+	} 
+}

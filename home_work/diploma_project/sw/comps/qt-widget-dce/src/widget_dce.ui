@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Widget_DCE</class>
+ <widget class="QWidget" name="Widget_DCE">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>961</width>
+    <height>743</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Widget_DCE</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout" columnstretch="1,2">
+   <item row="1" column="0">
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="tabPosition">
+      <enum>QTabWidget::North</enum>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <property name="elideMode">
+      <enum>Qt::ElideNone</enum>
+     </property>
+     <widget class="QWidget" name="tab_sett">
+      <attribute name="title">
+       <string>Настройка и клиенты</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QGroupBox" name="grB_settings">
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="title">
+          <string>Настройки :</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_7">
+          <item>
+           <widget class="QCheckBox" name="ch_ID">
+            <property name="text">
+             <string>ID_DCE_DST, ID_DCE_SRC</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_4">
+              <item>
+               <widget class="QLabel" name="label_3">
+                <property name="text">
+                 <string>DCE_ID</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="sb_id"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_6">
+              <item>
+               <widget class="QLabel" name="label_4">
+                <property name="text">
+                 <string>DCE_ID_DST</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="sb_id_dst"/>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="grB_typeMsg">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::RightToLeft</enum>
+            </property>
+            <property name="title">
+             <string>Тип сообщения :</string>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <widget class="QRadioButton" name="rb_xml">
+               <property name="text">
+                <string>&amp;XML</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rb_json">
+               <property name="text">
+                <string>&amp;JSON</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_2">
+              <item>
+               <widget class="QLabel" name="label">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>порт :</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="le_port"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_3"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="grB_clients">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>140</height>
+          </size>
+         </property>
+         <property name="title">
+          <string>Список клиентов :</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_3"/>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pb_net">
+         <property name="text">
+          <string>Старт/Стоп</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="lb_status_line">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Строка_состояния :</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_modem">
+      <attribute name="title">
+       <string>Модем</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <widget class="QCheckBox" name="chB_busy">
+           <property name="text">
+            <string>Модем занят</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="cb_stage">
+           <item>
+            <property name="text">
+             <string/>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>init</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>enable</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>sync</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>connect</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>discon</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>exchange</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="0">
+        <widget class="Line" name="line">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="CoreDCE" name="widget_modem" native="true"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_radio">
+      <attribute name="title">
+       <string>Радио канал</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <widget class="Widget_Exch_IQ" name="widget_IQ" native="true"/>
+       </item>
+       <item row="1" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_7">
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Глубина очереди передачи :</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="cb_depth">
+           <item>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>1</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>2</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>3</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>4</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>5</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>6</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>7</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>8</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>9</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>10</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_logger">
+      <attribute name="title">
+       <string>Журналирование</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_9">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_8">
+         <item>
+          <widget class="QLabel" name="label_5">
+           <property name="font">
+            <font>
+             <bold>true</bold>
+             <underline>true</underline>
+             <kerning>true</kerning>
+            </font>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::RightToLeft</enum>
+           </property>
+           <property name="text">
+            <string>Список возможных журналов:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QListWidget" name="lw_logs">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="alternatingRowColors">
+            <bool>true</bool>
+           </property>
+           <item>
+            <property name="text">
+             <string>Выбрать всё</string>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="textAlignment">
+             <set>AlignJustify|AlignVCenter</set>
+            </property>
+            <property name="checkState">
+             <enum>Unchecked</enum>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>-----------------------------------------------------------------------------------------------------------------------------------</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>cmd_journ.log</string>
+            </property>
+            <property name="toolTip">
+             <string extracomment="qqqqqq">Журнал команд от/к Клиенту по TCP соединению.</string>
+            </property>
+            <property name="statusTip">
+             <string extracomment="sdfsdfsd"/>
+            </property>
+            <property name="whatsThis">
+             <string extracomment="ffffff">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="font">
+             <font>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="checkState">
+             <enum>Checked</enum>
+            </property>
+            <property name="flags">
+             <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>trunsportUDP_journ.log</string>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Журнал пакетов транспортного уровня от/к радио ср-вам по UDP соединению.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="checkState">
+             <enum>Checked</enum>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>trunsportTCP_journ.log</string>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Журнал пакетов транспортного уровня  от/к Клиенту по TCP соединению.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="checkState">
+             <enum>Checked</enum>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>msgQueue_journ.log</string>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Журнал сообщений в очереди на модуляцию на передающей стороне.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="checkState">
+             <enum>Unchecked</enum>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>slotPass_journ.log</string>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Журнал слотов для передачи после модуляции.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="checkState">
+             <enum>Unchecked</enum>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>modulBefore_journ.log</string>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Журнал слотов перед попаданием в модулятор/демодулятов.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="checkState">
+             <enum>Unchecked</enum>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>modulAfter_journ.log</string>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Журнал слотов после выхода из  модулятор/демодулятов.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="checkState">
+             <enum>Unchecked</enum>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>timerPassSlot_journ.log</string>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Журнал работы таймера по передачи слота для формирования набора пакетов .&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="checkState">
+             <enum>Checked</enum>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>timerPassPack_journ.log</string>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Журнал работы таймера по передачи пакета UDP в радио канал.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="checkState">
+             <enum>Unchecked</enum>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>dubleBufData_journ.log</string>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Журнал данных буффера двойной длинны перед демодуляцией на приёмной стороне.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="checkState">
+             <enum>Unchecked</enum>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="2">
+    <widget class="QLabel" name="lb_title">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Заголовок</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1" rowspan="2">
+    <widget class="QGroupBox" name="grB_journ">
+     <property name="title">
+      <string>Журнал сообщений :</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_5">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="WidgetMess" name="widget_journ" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>300</width>
+            <height>0</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="chB_Journal">
+          <property name="text">
+           <string>Видимость журнала</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="chB_format">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="text">
+           <string>Форматировать сообщения</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>WidgetMess</class>
+   <extends>QWidget</extends>
+   <header location="global">widgetmess.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CoreDCE</class>
+   <extends>QWidget</extends>
+   <header location="global">coreDCE.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Widget_Exch_IQ</class>
+   <extends>QWidget</extends>
+   <header location="global">widget-exch-IQ.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

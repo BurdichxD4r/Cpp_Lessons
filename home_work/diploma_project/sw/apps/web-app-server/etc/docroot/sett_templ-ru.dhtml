@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+
+<title>Форма настройки системы</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+.table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+    height: 50%;
+}
+
+.table td.ip {
+    border: 1px solid #dddddd;
+    padding: 10px;
+    width: 15%;
+}
+
+.table td.ip input[type="text"]{
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #000;
+    height: 30px;
+    font-size: 15px;
+}
+
+.td, .th {
+    border: 1px solid #dddddd;
+    padding: 10px;
+    width: 5%;
+    height: 1%;
+
+}
+
+.td input[type="text"]{
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #000;
+    height: 30px;
+    font-size: 15px;
+}
+
+.td input[type="radio"]{
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #000;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+    <body>
+        <form method="POST" action="/setting" autocomplete="off">
+            Ваше имя: {username}<br>
+            Вы вошли : {logintime}<br>
+            <h1>Настройка системы</h1>
+            <table class="table">
+                <tr>
+                    <th class="th">Порядковый номер DCE</th>
+                    <th class="th">Период отправки команды PING, сек</th>
+                    <th class="th">Период отправки команды VERSION, сек</th>
+                    <th class="th">Выдавать сообщение о различиях в версиях ПО в на модемах и ПАК АУ</th>
+                    <th class="th">MAX время нахождения сообщения в очереди, ms</th>
+                    <th class="th">Тип протокола</th>
+                    <th class="th">Список портов, DTE</th>
+                    <th class="th">Список портов, DCE</th>
+                    <th class="th">Список ip, DCE</th>
+                    <th class="th">Номер порта из DCE_list_ports, используемый для подключения к DCE</th>
+                    <th class="th">Номер порта из DCE_ip_ports, используемый для подключения к DCE</th>
+                    <th class="th">Радио роль в сети (принимающий (RX)/ передающий (TX))</th>
+                    <th class="th">Период времени опроса состояния (отправки сообщения «Status») DCE, ms</th>
+                    <th class="th">MAX кол-во попыток соединения с DCE за 1 цикл опроса состояния, ед</th>
+                    <th class="th">Время ожидания ответа на сообщение «Status» от DCE, ms</th>
+                    <th class="th">Время ожидания ответа на сообщение о восстановлении состояния DCE, ms</th>
+                </tr>
+                {loop sett}
+                    <tr>
+                        <td class="td"><p id=DCE_serial_number{sett.DCE_serial_number} name=DCE_serial_number{sett.DCE_serial_number}>{sett.DCE_serial_number}</td>
+                        <td class="td"><input type="text" id=ping_period{sett.DCE_serial_number} name=ping_period{sett.DCE_serial_number} value={sett.ping_period}></td>
+                        <td class="td"><input type="text" id=version_period{sett.DCE_serial_number} name=version_period{sett.DCE_serial_number} value={sett.version_period}></td>
+                        <td class="td">
+                            <lable class="castom-radio">
+                                <input type="radio" id=version_mess{sett.DCE_serial_number} name=version_mess{sett.DCE_serial_number} value=1>
+                                <span>Да</span><br>
+                                <input type="radio" id=version_mess{sett.DCE_serial_number} name=version_mess{sett.DCE_serial_number} value=0>
+                                <span>Нет</span>
+                            </lable>
+                        </td>
+                        <td class="td"><input type="text" id=time_messeges{sett.DCE_serial_number} name=time_messeges{sett.DCE_serial_number} value={sett.time_messeges}></td>
+                        <td class="td">
+                            <lable class="castom-radio">
+                                <input type="radio" id=type_protocol{sett.DCE_serial_number} name=type_protocol{sett.DCE_serial_number} value=1>
+                                <span>JSON</span><br>
+                                <input type="radio" id=type_protocol{sett.DCE_serial_number} name=type_protocol{sett.DCE_serial_number} value=0>
+                                <span>XML</span>
+                            </lable>
+                        </td>
+                        <td class="td"><input type="text" id=DTE_list_ports{sett.DCE_serial_number} name=DTE_list_ports{sett.DCE_serial_number} value={sett.DTE_list_ports}></td>
+                        <td class="td"><input type="text" id=DCE_list_ports{sett.DCE_serial_number} name=DCE_list_ports{sett.DCE_serial_number} value={sett.DCE_list_ports}></td>
+                        <td class="ip"><input type="text" id=DCE_list_ip{sett.DCE_serial_number} name=DCE_list_ip{sett.DCE_serial_number} value={sett.DCE_list_ip}></td>
+                        <td class="td"><input type="text" id=DCE_port_number{sett.DCE_serial_number} name=DCE_port_number{sett.DCE_serial_number} value={sett.DCE_port_number}></td>
+                        <td class="td"><input type="text" id=DCE_ip_number{sett.DCE_serial_number} name=DCE_ip_number{sett.DCE_serial_number} value={sett.DCE_ip_number}></td>
+                        <td class="td">
+                            <lable class="castom-radio">
+                                <input type="radio" id=role_in_network{sett.DCE_serial_number} name=role_in_network{sett.DCE_serial_number} value=1>
+                                <span>TX</span><br>
+                                <input type="radio" id=role_in_network{sett.DCE_serial_number} name=role_in_network{sett.DCE_serial_number} value=0>
+                                <span>RX</span>
+                            </lable>
+                        </td>
+                        <td class="td"><input type="text" id=status_polling_time_period{sett.DCE_serial_number} name=status_polling_time_period{sett.DCE_serial_number} value={sett.status_polling_time_period}></td>
+                        <td class="td"><input type="text" id=max_connection_attempts_DCE{sett.DCE_serial_number} name=max_connection_attempts_DCE{sett.DCE_serial_number} value={sett.max_connection_attempts_DCE}></td>
+                        <td class="td"><input type="text" id=waiting_time_status_DCE{sett.DCE_serial_number} name=waiting_time_status_DCE{sett.DCE_serial_number} value={sett.waiting_time_status_DCE}></td>
+                        <td class="td"><input type="text" id=waiting_time_recovery_DCE{sett.DCE_serial_number} name=waiting_time_recovery_DCE{sett.DCE_serial_number} value={sett.waiting_time_recovery_DCE}></td>
+                    </tr>
+                {end sett}
+            </table><br>
+            <button type="submit">Установить</button>
+            <p>Вернуться <a href="login">на главную форму</a></p>
+        </form>
+    </body>
+</html>

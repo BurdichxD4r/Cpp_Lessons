@@ -1,0 +1,19 @@
+{
+    "Users": {
+        "obj": "UserList",
+        "params": [
+            {
+                "login": "friend1",
+                "pass": "hi"
+            },
+            {
+                "login": "test",
+                "pass": "hello"
+            },
+            {
+                "login": "user",
+                "pass": "12345678"
+            }
+        ]
+    }
+}

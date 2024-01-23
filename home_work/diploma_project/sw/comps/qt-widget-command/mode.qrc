@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/file_mode">
+        <file>inc/mode1.txt</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+
+<title>Форма для аутентификации пользователя</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--<link rel="stylesheet" href="style.css">-->
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .container{
+        width: 100%;
+        height: 100vh;
+        background-color: #0099ff;
+        opacity: 0.8;
+    }
+
+    .not_registered {
+        position: absolute;
+        top: 1%;
+        left: 1%;
+        color: #ca1e1e;
+        font-size: 20px;
+        font-weight: bold;
+        opacity: 0;
+        animation: fadeIn ease-in 1;
+        animation-fill-mode: forwards;
+        animation-duration: 1s;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .login{
+        width: 300px;
+        height: 350px;
+        background: #222;
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px;
+        padding: 30px 30px;
+    }
+
+    h1{
+        text-align: center;
+        padding: 0 0 20px;
+        font-size: 30px;
+    }
+
+    label{
+        font-weight: bold;
+    }
+
+    .login input{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .login input[type="text"], input[type="password"]{
+        border: none;
+        outline: none;
+        background: transparent;
+        border-bottom: 1px solid #fff;
+        color: #fff;
+        height: 30px;
+        font-size: 15px;
+    }
+
+    .login button{
+        width: 100%;
+        margin-bottom: 20px;
+        border: none;
+        outline: none;
+        height: 40px;
+        border-radius: 25px;
+        background-color: transparent;
+        border: 2px solid #0099ff;
+        color: #fff;
+        font-size: 20px;
+        transition: .5s;
+    }
+
+    .login button:hover{
+        cursor: pointer;
+        background-color: #0099ffd0;
+        color: #000;
+    }
+
+    .pass-icon{
+        color: #fff;
+        position: absolute;
+        right: 35px;
+        top: 50%;
+        cursor: pointer;
+        transition: background 1s;
+    }
+
+    .pass-icon:active{
+        color: #0099ff;
+        transition: background 0s;
+    }
+
+    #wrapper{
+        position: absolute;
+        width: 320px;
+        left: 50%;
+        margin-left: -160px;
+        top: 50%;
+        margin-top: -75px;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="clock"></div>
+        {if login_in}
+            <form method="POST" action="/setting" autocomplete="off">
+                <p>Вы уже вошли.<br>
+                Ваше имя: {username}<br>
+                Вы вошли : {logintime}<br></p>
+                <div class="login">
+                    <h1>Вход в систему выполнен</h1>
+                    <p>Администрирование <a href="admining">admin</a></p>
+                    <p>Настройки <a href="setting">settings</a></p>
+                    <p>Состояние системы <a href="summary">summary</a></p>
+                </div>
+            </form>
+        {else login_in}
+            {if secure_login}
+                <form>
+                    Добро пожаловать, {username} <a href="passchange">[Сменить пароль, если необходимо]</a>
+                    <div class="login">
+                        <h1>Вход в систему выполнен</h1>
+                        <p>Администрирование <a href="admining">admin</a></p>
+                        <p>Настройки <a href="setting">settings</a></p>
+                        <p>Состояние системы <a href="summary">summary</a></p>
+                    </div>
+                </form>
+
+            {else secure_login}
+                {if empty_login}
+                {else empty_login}
+                    <p class="not_registered">Логин или пароль не зарегистрированны в системе или не заполнены. Попробуйте ещё раз!</p>
+                {end empty_login}
+                    <div class="login">
+                        <h1>Вход в систему</h1>
+                        <form method="POST" action="/login" autocomplete="off">
+                            <label for="username">Пользователь</label>
+                            <input type="text" id="username" name="username" placeholder="Введите имя пользователя">
+                            <label for="password">Пароль</label>
+                            <input type="password" id="password" name="password" class="password" placeholder="Пароль">
+                            <span class="pass-icon" id="pass-icon">👁</span>
+                            <button type="submit">Войти</button>
+                            <p>Забыли пароль? Обратитесь к администратору </p>
+                        </form>
+                     {end secure_login}
+                <script>
+                    const inputPass = document.getElementById('password');
+                    const iconPass = document.getElementById('pass-icon');
+
+                    iconPass.addEventListener('click', () => {
+                        if (inputPass.getAttribute('type') === "password"){
+                            inputPass.setAttribute('type', 'text');
+                        } else {
+                            inputPass.setAttribute('type', 'password');
+                        }
+                    });
+                </script>
+                <script>
+                    class Clock {
+                        static timeNormalize(time) {
+                            return time < 10 ? `0${time}` : time;
+                        }
+                        static getTime() {
+                            let date = new Date();
+
+                            let h = Clock.timeNormalize(date.getHours());
+                            let m = Clock.timeNormalize(date.getMinutes());
+                            let s = Clock.timeNormalize(date.getSeconds());
+
+                            return `${h}:${m}:${s}`;
+                        }
+                        static RENDER_FACTORY_DEFAULT(element) {
+                            element.innerHTML = Clock.getTime();
+                        }
+                        constructor(element, renderFactory = Clock.RENDER_FACTORY_DEFAULT) {
+                            let update = () => {
+                                renderFactory(element);
+                                window.requestAnimationFrame(update);
+                            }
+                            update();
+                        }
+                    }
+                    let clockElement = document.querySelector('.clock');
+                    let clock = new Clock(clockElement);
+                </script>
+        {end login_in}
+    </div>
+</body>
+</html>
+

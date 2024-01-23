@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset=\"UTF-8\">
+
+<title>Администрирование пользователей</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<style>
+      #list a{
+             margin-left: 7px;
+      }
+
+      #login_u {
+       display: none;
+       background-color: lightblue;
+      }
+    
+      #pass_u {
+       display: none;
+       background-color: lightblue;
+      }
+
+      #submit {
+       display: none;
+      }
+
+      #num_u{
+       display: none;
+      }  
+      .num_cur{
+        visibility: hidden;
+      }  
+     
+</style>
+</head>
+
+<body>  
+
+   <form id="admining" method="POST" action="/admining" autocomplete="off">
+   Ваше имя: {username}
+   <br>
+   Вы вошли : {logintime}
+   <br>    
+
+       <h1>Администрирование пользователей</h1>
+       <br>
+       <div id="wrapper">
+       <h2>Список зарегистрированных пользователей:</h2>
+       <br>
+       <h3> 
+
+<!-- Список данных пользователя отображающ. на форме -->
+
+       <ul id="list">
+            {loop row}                 
+               <li>        
+                   <span class ="num_cur">{row.number}</span>             
+                   <span class ="login_cur">{row.name}</span> 
+                   <span class ="pass_cur">{row.pass}</span>
+              </li>                 
+            {end row}
+       </ul>       
+<!-- Элементы ввода на форме -->
+        
+       <input id ="num_u" name="num_u" >
+       <input id ="login_u" name="login_u" >
+       <input id ="pass_u" name="pass_u" >
+       <button type ="submit" id ="submit">Изменить</button>
+
+<!-- Начало скрипта -->     
+       <script> 
+          
+
+           var list = document.querySelector('#list');  // this is commets
+           var items = list.querySelectorAll('li');
+           var my_form = document.querySelector('#admining');
+    
+           var loginInput = document.querySelector('#login_u');
+           var passInput  = document.querySelector('#pass_u');
+           var submit = document.querySelector('#submit');  
+           var numInput = document.querySelector('#num_u');  
+        
+           var editLi;
+           
+           for (var i = 0; i < items.length; i++) {
+
+<!-- Ссылка Редактировать данные пользователя -->
+
+	      var link_ed = document.createElement('a');
+	      link_ed.href = '#';
+	      link_ed.innerHTML = 'Изменить';
+              link_ed.addEventListener('click',function(){            
+                  var li = this.parentElement;
+                  editLi = li;
+                  loginInput.style.display ='block';
+                  passInput.style.display ='block';                  
+                  submit.style.display ='block';
+
+                  numInput.value = li.querySelector('.num_cur').innerHTML;
+                  loginInput.value = li.querySelector('.login_cur').innerHTML;
+                  passInput.value = li.querySelector('.pass_cur').innerHTML;        
+             }); 
+             items[i].appendChild(link_ed);
+
+<!-- Ссылка Удалить пользователя -->
+
+
+             var link_del = document.createElement('a');
+             link_del.href ='##';            
+	     link_del.innerHTML = 'Удалить';                     
+             link_del.addEventListener('click',function(){
+                 // document.removeChild(items[i]);
+                  var li = this.parentElement;
+                  editLi = li;                               
+
+                  loginInput.style.display ='block';
+                  passInput.style.display ='block';                  
+                  submit.style.display ='block';
+
+                  numInput.value = li.querySelector('.num_cur').innerHTML;
+                  loginInput.value = null;
+                  passInput.value = null;            
+                  document.getElementById("submit").click();
+                  li.style.display = 'none';                             
+             });              
+             items[i].appendChild(link_del);
+            
+          }
+
+        submit.addEventListener('click', function(){
+
+               editLi.querySelector('.login_cur').innerHTML = loginInput.value;
+               editLi.querySelector('.pass_cur').innerHTML = passInput.value;
+               editLi.querySelector('.num_cur').innerHTML = numInput.value;
+               loginInput.style.display = 'none';
+               passInput.style.display = 'none';
+               numInput.style.display ='none';
+               submit.style.display = 'none';
+              // event.preventDefault();
+          });
+<!-- Ссылка Добавить пользователя -->
+
+          var link_add = document.createElement('a');
+          var br = document.createElement('br');
+	  link_add.href = '###';
+          list.appendChild(br);
+	  link_add.innerHTML = 'Добавить пользователя';
+
+          link_add.addEventListener('click',function(){
+                loginInput.style.display ='block';
+                passInput.style.display ='block';                
+                submit.style.display ='block';
+                numInput.value = items.length + 1;            
+          });
+      list.appendChild(link_add);
+
+<!-- Кнопка Изменить -->
+
+          
+
+     </script>
+<!-- Конец Блока скрипта -->
+     </h3>
+            <p>Вернуться <a href="login">на главную форму</a></p>
+
+            </form>
+            </div>
+
+    </body>
+
+
+</html>

@@ -1,0 +1,82 @@
+{
+    "Clients": {
+        "obj": "ClientList",
+        "params": [
+            {
+                "connectTime": 1681108159780,
+                "port": 4002,
+                "type": "AU"
+            },
+            {
+                "connectTime": 1681108159760,
+                "port": 4001,
+                "type": "AU"
+            },
+            {
+                "connectTime": 1681108189760,
+                "port": 4003,
+                "type": "MAS"
+            }
+        ]
+    },
+    "Modems": {
+        "obj": "ModemList",
+        "params": [
+            {
+                "DCE_ID": 11,
+                "IP": "10.128.24.196",
+                "busy": "yes",
+                "creationTime": 1681108159546,
+                "enableTime": 1681108159788,
+                "port": 4001,
+                "radioType": "RT",
+                "regim": 5,
+                "stage": "enable"
+            },
+            {
+                "DCE_ID": 12,
+                "IP": "10.128.25.196",
+                "busy": "yes",
+                "creationTime": 1681108159668,
+                "enableTime": 1681108167536,
+                "port": 4001,
+                "radioType": "TX",
+                "regim": 5,
+                "stage": "enable"
+            },
+            {
+                "DCE_ID": 21,
+                "IP": "10.128.28.196",
+                "busy": "yes",
+                "creationTime": 1681108159346,
+                "enableTime": 1681108159540,
+                "port": 4001,
+                "radioType": "RX",
+                "regim": 6,
+                "stage": "enable"
+            },
+            {
+                "DCE_ID": 22,
+                "IP": "10.128.29.196",
+                "busy": "no",
+                "creationTime": 1681108159555,
+                "enableTime": 1681108159748,
+                "port": 4001,
+                "radioType": "TX",
+                "regim": 3,
+                "stage": "disable"
+            },
+            {
+                "DCE_ID": 24,
+                "IP": "10.128.27.196",
+                "busy": "no",
+                "creationTime": 1681108169555,
+                "enableTime": 1681108169748,
+                "port": 4001,
+                "radioType": "RX",
+                "regim": 5,
+                "stage": "enable"
+            }
+        ]
+    }
+}

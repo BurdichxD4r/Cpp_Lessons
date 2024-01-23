@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/icon">
+        <file>pics/y_red.png</file>
+        <file>pics/mas_blue.png</file>
+        <file>pics/au_blue.png</file>
+        <file>pics/u_blue.png</file>
+        <file>pics/unknow_blue.png</file>
+    </qresource>
+</RCC>
